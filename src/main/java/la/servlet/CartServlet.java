@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import la.bean.CartBean;
 import la.bean.ItemBean;
+import la.dao.DAOException;
 import la.dao.ItemDAO;
 
 @WebServlet("/CartServlet")
@@ -31,8 +32,20 @@ public class CartServlet extends HttpServlet {
 		        cart = new CartBean();
 		        session.setAttribute("cart", cart);
 		    }
-		    ItemDAO dao = new ItemDAO();
-		    ItemBean bean = dao.findByPrimaryKey(code);
+		    ItemDAO dao = null;
+			try {
+				dao = new ItemDAO();
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		    ItemBean bean = null;
+			try {
+				bean = dao.findByPrimaryKey(code);
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		   
 		    cart.addCart(bean, quantity);
 		    gotoPage(request, response, "/cart.jsp");
