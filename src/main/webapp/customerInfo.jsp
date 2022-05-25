@@ -16,7 +16,7 @@
 
 <c:if test="${not empty cart.items}">
 <table border="1">
-<tr><td>商品番号</td>><td>商品名</td><td>単価(税込)</td>
+<tr><td>商品番号</td><td>商品名</td><td>単価(税込)</td>
 <td>個数</td><td>小計</td><tr>
 
 <c:forEach items="${cart.items}" var="item">
@@ -47,6 +47,12 @@
 	<td>e-mail</td><td><input type="text" name="email"></td>
 	</tr>
 </table>
+<br>
+<input type="radio" name="pay" value="cash">代金引き換え
+<input type="radio" name="pay" value="card">クレジットカード決済
+<input type="radio" name="pay" value="conveni">コンビニ決済
+<br>
+<br>
 <input type="submit" value="確認画面へ">
 </form>
 </c:if>

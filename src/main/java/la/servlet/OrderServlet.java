@@ -51,6 +51,36 @@ public class OrderServlet extends HttpServlet {
                 bean.setTel(request.getParameter("tel"));
                 bean.setEmail(request.getParameter("email"));
                 session.setAttribute("customer", bean);
+                
+                ///追加機能お試し版
+                String payment = request.getParameter("pay");
+        		
+        		String selectedPayment;
+        		if (payment == null) {
+        			request.setAttribute("message",
+        	                "支払方法を選択してください。");
+        	            gotoPage(request, response, "/errInternal.jsp");
+        	            return;
+        		} else {
+        			switch (payment) {
+        			case "cash":
+        				selectedPayment = "代金引換";
+        				break;
+        			case "card":
+        				selectedPayment = "クレジットカード決済";
+        				session.setAttribute("card", selectedPayment);
+        				 
+        				break;
+        			case "convini":
+        				selectedPayment = "コンビニ決済";
+        				break;
+        			default:
+        				selectedPayment = "???";
+        				break;
+        			}
+        		}
+                // おわり
+                
                 gotoPage(request, response, "/confirm.jsp");
             } else if (action.equals("order")) {
                  
@@ -69,7 +99,9 @@ public class OrderServlet extends HttpServlet {
                 session.removeAttribute("customer");
                 
                 request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
+                                               
                 gotoPage(request, response, "/order.jsp");
+                
             } else { 
                
                 request.setAttribute("message", "正しく操作してください。");
