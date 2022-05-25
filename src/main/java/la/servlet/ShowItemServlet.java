@@ -30,7 +30,6 @@ public class ShowItemServlet extends HttpServlet {
                 int categoryCode = Integer.parseInt(request.getParameter("code"));
                 ItemDAO dao = new ItemDAO();
                 List<ItemBean> list = dao.findByCategory(categoryCode);
-                
                 request.setAttribute("items", list);
                 gotoPage(request, response, "/list.jsp");
             } else {
@@ -53,7 +52,6 @@ public class ShowItemServlet extends HttpServlet {
 
     public void init() throws ServletException {
         try {
-            
             ItemDAO dao = new ItemDAO();
             List<CategoryBean> list = dao.findAllCategory();
             getServletContext().setAttribute("categories", list);
