@@ -9,6 +9,14 @@
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
 </head>
+
+<style>
+body {
+font-family: 'Itim', cursive;
+background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa0c1f12d37.jpg");
+}
+</style>
+
 <body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
@@ -50,7 +58,7 @@
 <br>
 <input type="radio" name="pay" value="cash">代金引き換え
 <input type="radio" name="pay" value="card">クレジットカード決済
-<input type="radio" name="pay" value="conveni">コンビニ決済
+<input type="radio" name="pay" value="convini">コンビニ決済
 <br>
 <br>
 <input type="submit" value="確認画面へ">

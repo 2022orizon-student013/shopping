@@ -16,7 +16,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 }
 </style>
 
-<body style=background-color:#E3D7A3>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
 <h3><p style="color:brown">下記の内容で注文を行いますか？</p></h3>
@@ -39,7 +39,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
-<h3>お客様情報</h3>
+<h3><p style="color:brown">お客様情報</p></h3>
 
 <form action="/shopping/OrderServlet?action=order" method="post">
     <table border="1">
@@ -54,8 +54,22 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
         </tr>
         <tr>
         <td>e-mail</td><td>${customer.email}</td>
-        </tr>
-    </table><br>
+     </table>
+        
+     <h3><p style="color:brown">支払方法</p></h3>
+        ${message}
+    <br>
+    クレジットカードの名義：${card.name}
+    <br>
+    クレジットカード番号： ${card.num}
+    <br>   
+    <br>
+    有効期限：月${card.month}/年${card.year}
+    <br> 
+    <br>
+    セキュリティコード：${card.pass}
+    <br>    
+    <br>
     <input type="submit" value="この内容で注文">
 </form>
 

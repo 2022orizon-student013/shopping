@@ -16,11 +16,11 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 }
 </style>
 
-<body style=background-color:#E3D7A3>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3><p style="color:brown">下記の内容で注文を行いますか？</p></h3>
-<h3><p style="color:brown">ご注文商品</p></h3>
+<h3>下記の内容で注文を行いますか？</h3>
+<h3>ご注文商品</h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">
@@ -41,7 +41,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 
 <h3>お客様情報</h3>
 
-<form action="/shopping/OrderServlet?action=order" method="post">
+<form action="/shopping/OrderServlet?action=cardInfo" method="post">
     <table border="1">
         <tr>
         <td>お名前</td><td>${customer.name}</td>
@@ -56,10 +56,24 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
         <td>e-mail</td><td>${customer.email}</td>
         </tr>
     </table><br>
+    
+    <h3>支払方法</h3>
+        ${message}
+    <br>
+    	<h5>クレジットカード情報を入力してください</h5>
+    	<font size="4">クレジットカードの名義：</font><input type="text" name="cardName"><br>
+    	<font size="4">クレジットカード番号：</font><input type="text" name="cardNum"><br>
+		<font size="4">有効期限：</font>
+			月<input type="text" name="cardMonth" size="2">/年<input type="text" name="cardYear" size="2"><br>
+			<font size="4">セキュリティコード：</font><input type="text" name="cardPass">
+    <br>
     <input type="submit" value="この内容で注文">
 </form>
 
 </c:if>
+
+<br>
+
 
 </body>
 </html>

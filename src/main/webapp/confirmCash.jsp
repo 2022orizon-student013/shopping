@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	   pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -19,18 +19,13 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3><p style="color:brown">現在のカートの中身</p></h3>
-
-<c:if test="${empty cart.items}">
-<h4>現在、カートは空です。</h4>
-<img src="https://3.bp.blogspot.com/-P6ZK7_CU1Is/UmuA4EO_8nI/AAAAAAAAZhc/4XWFy6_YTMA/s800/shopping_cart.png" width="200px" height="200px">
-</c:if>
+<h3>下記の内容で注文を行いますか？</h3>
+<h3>ご注文商品</h3>
 
 <c:if test="${not empty cart.items}">
-
 <table border="1">
 <tr><td>商品番号</td><td>商品名</td><td>単価(税込)</td>
-    <td>個数</td><td>小計</td><td>削除</td></tr>
+    <td>個数</td><td>小計</td></tr>
 
 <c:forEach items="${cart.items}" var="item">
 <tr>
@@ -39,21 +34,35 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
     <td align="right">${item.price}円</td>
     <td align="right">${item.quantity}</td>
     <td align="right">${item.price * item.quantity}円</td>
-<td>
-<form action="/shopping/CartServlet?action=delete" method="post">
-    <input type="hidden" name="item_code" value="${item.code}">
-    <input type="submit" value="削除">
-</form>
-</td>
 </tr>
 </c:forEach>
 <tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
-<form action="/shopping/OrderServlet?action=input_customer" method="post">
-    <input type="submit" value="注文する">
+<h3>お客様情報</h3>
+
+<form action="/shopping/OrderServlet?action=order" method="post">
+    <table border="1">
+        <tr>
+        <td>お名前</td><td>${customer.name}</td>
+        </tr>
+        <tr>
+        <td>住所</td><td>${customer.address}</td>
+        </tr>
+        <tr>
+        <td>電話番号</td><td>${customer.tel}</td>
+        </tr>
+        <tr>
+        <td>e-mail</td><td>${customer.email}</td>
+     </table>
+        
+     <h3>支払方法</h3>
+        ${message}
+        <br>        
+    <br>
+    <input type="submit" value="この内容で注文">
 </form>
-<img src="https://2.bp.blogspot.com/-d2B4qMNWJQ4/Ur1HmKS3oiI/AAAAAAAAcjM/yk8Xg3FJh04/s800/shopping_cart_woman.png" width="200px" height="200px">
+
 </c:if>
 
 </body>
