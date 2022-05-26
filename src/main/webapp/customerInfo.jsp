@@ -9,10 +9,10 @@
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
 </head>
-<body>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>ご注文商品</h3>
+<h3><p style="color:brown">ご注文商品</p></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">
@@ -30,7 +30,7 @@
 </c:forEach>
 <tr><td align="right" colspan="6">総計:${cart.total}円</td></tr>		
 </table>
-<h3>お客様情報を入力してください。</h3>
+<h3><p style="color:brown">お客様情報を入力してください。</p></h3>
 
 <form action="/shopping/OrderServlet?action=confirm" method="post">
 <table border="1">

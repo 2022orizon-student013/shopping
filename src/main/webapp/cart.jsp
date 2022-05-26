@@ -8,16 +8,18 @@
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
 </head>
-<body>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>現在のカートの中身</h3>
+<h3><p style="color:brown">現在のカートの中身</p></h3>
 
 <c:if test="${empty cart.items}">
-現在、カートは空です。
+<h4>現在、カートは空です。</h4>
+<img src="https://3.bp.blogspot.com/-P6ZK7_CU1Is/UmuA4EO_8nI/AAAAAAAAZhc/4XWFy6_YTMA/s800/shopping_cart.png" width="200px" height="200px">
 </c:if>
 
 <c:if test="${not empty cart.items}">
+
 <table border="1">
 <tr><td>商品番号</td><td>商品名</td><td>単価(税込)</td>
     <td>個数</td><td>小計</td><td>削除</td></tr>
@@ -43,6 +45,7 @@
 <form action="/shopping/OrderServlet?action=input_customer" method="post">
     <input type="submit" value="注文する">
 </form>
+<img src="https://2.bp.blogspot.com/-d2B4qMNWJQ4/Ur1HmKS3oiI/AAAAAAAAcjM/yk8Xg3FJh04/s800/shopping_cart_woman.png" width="200px" height="200px">
 </c:if>
 
 </body>

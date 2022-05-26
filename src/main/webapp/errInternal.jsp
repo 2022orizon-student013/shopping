@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Input Error</title>
 </head>
-<body>
+<body style="background-color:#E3D7A3;">
 
 <h1>${message}</h1>
 

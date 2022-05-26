@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <title>商品一覧</title>
 </head>
-<body>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" />
 
-<h3>商品一覧</h3>
+<h3><p style="color:brown">商品一覧</p></h3>
 
 <c:forEach items="${items}" var="item">
     <form action="/shopping/CartServlet?action=add" method="post">

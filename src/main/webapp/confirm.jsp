@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
 </head>
-<body>
+<body style=background-color:#E3D7A3>
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>下記の内容で注文を行いますか？</h3>
-<h3>ご注文商品</h3>
+<h3><p style="color:brown">下記の内容で注文を行いますか？</p></h3>
+<h3><p style="color:brown">ご注文商品</p></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">

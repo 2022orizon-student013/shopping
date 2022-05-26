@@ -8,13 +8,17 @@
 <meta charset="UTF-8">
 <title>Welcome shopping!</title>
 </head>
-<body>
+<body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>ご注文ありがとうございました。</h3>
+<marquee behavior="alternate"><h1><p style="color:brown">★★★ご注文ありがとうございました。★★★ご注文ありがとうございました。</p></h1></marquee>
+<br>
+<br>
 お客様の注文番号は
 <h3><font color="red">${orderNumber}</font></h3>
 になります。
-
+<br>
+<br>
+<marquee behavior="scroll"><img src="https://3.bp.blogspot.com/-LhG8uw8I0ws/WI1zKsSqtlI/AAAAAAABBW4/QG2iYV0L1BQpiHAODx9w_t0WpuNvBsfdACLcB/w1200-h630-p-k-no-nu/car_side_truck.png" width="400px" height="200px"></marquee>
 </body>
 </html>
