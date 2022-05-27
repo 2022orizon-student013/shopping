@@ -2,7 +2,6 @@ package la.bean;
 
 import java.io.Serializable;
 
-
 public class CustomerBean implements Serializable {
 	private int code;
 	private String name;
@@ -16,11 +15,11 @@ public class CustomerBean implements Serializable {
 		this.address = address;
 		this.tel = tel;
 		this.email = email;
-		
+
 	}
-	
+
 	public CustomerBean() {
-		
+
 	}
 
 	public int getCode() {
@@ -63,6 +62,4 @@ public class CustomerBean implements Serializable {
 		this.email = email;
 	}
 
-	
-	}
-	
+}

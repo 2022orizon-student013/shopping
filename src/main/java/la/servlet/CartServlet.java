@@ -18,70 +18,68 @@ import la.dao.ItemDAO;
 @WebServlet("/CartServlet")
 public class CartServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, 
-          HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
 		if (action == null || action.length() == 0 || action.equals("show")) {
-		    gotoPage(request, response, "/cart.jsp");
+			gotoPage(request, response, "/cart.jsp");
 		} else if (action.equals("add")) {
-		    int code = Integer.parseInt(request.getParameter("item_code"));
-		    int quantity = Integer.parseInt(request.getParameter("quantity"));
-		    HttpSession session = request.getSession(true);
-		    CartBean cart = (CartBean)session.getAttribute("cart");
-		    if (cart == null) { 
-		        cart = new CartBean();
-		        session.setAttribute("cart", cart);
-		    }
-		    ItemDAO dao = null;
+			int code = Integer.parseInt(request.getParameter("item_code"));
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			HttpSession session = request.getSession(true);
+			CartBean cart = (CartBean) session.getAttribute("cart");
+			if (cart == null) {
+				cart = new CartBean();
+				session.setAttribute("cart", cart);
+			}
+			ItemDAO dao = null;
 			try {
 				dao = new ItemDAO();
 			} catch (DAOException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
-		    ItemBean bean = null;
+			ItemBean bean = null;
 			try {
 				bean = dao.findByPrimaryKey(code);
 			} catch (DAOException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
-		   
-		    cart.addCart(bean, quantity);
-		    gotoPage(request, response, "/cart.jsp");
+
+			cart.addCart(bean, quantity);
+			gotoPage(request, response, "/cart.jsp");
 		} else if (action.equals("delete")) {
-		   
-		    HttpSession session = request.getSession(false);
-		    if (session == null) { 
-		        request.setAttribute("message",
-		"セッションが切れています。もう一度トップページより操作してください。");
-		        gotoPage(request, response, "/errInternal.jsp");
-		        return;
-		    }
-		    CartBean cart = (CartBean)session.getAttribute("cart");
-		    if (cart == null) {
-		        request.setAttribute("message", "正しく操作してください。");
-		        gotoPage(request, response, "/errInternal.jsp");
-		        return;
-		    }
-		    int code = Integer.parseInt(request.getParameter("item_code"));
-		    cart.deleteCart(code);
-		    gotoPage(request, response, "/cart.jsp");
-		} else { 
-		    request.setAttribute("message", "正しく操作してください。");
-		    gotoPage(request, response, "/errInternal.jsp");
+
+			HttpSession session = request.getSession(false);
+			if (session == null) {
+				request.setAttribute("message", "セッションが切れています。もう一度トップページより操作してください。");
+				gotoPage(request, response, "/errInternal.jsp");
+				return;
+			}
+			CartBean cart = (CartBean) session.getAttribute("cart");
+			if (cart == null) {
+				request.setAttribute("message", "正しく操作してください。");
+				gotoPage(request, response, "/errInternal.jsp");
+				return;
+			}
+			int code = Integer.parseInt(request.getParameter("item_code"));
+			cart.deleteCart(code);
+			gotoPage(request, response, "/cart.jsp");
+		} else {
+			request.setAttribute("message", "正しく操作してください。");
+			gotoPage(request, response, "/errInternal.jsp");
 		}
-    }
+	}
 
-    private void gotoPage(HttpServletRequest request,
-			HttpServletResponse response, String page) throws ServletException,
-			IOException {
-        RequestDispatcher rd = request.getRequestDispatcher(page);
-        rd.forward(request, response);
-    }
+	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)
+			throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher(page);
+		rd.forward(request, response);
+	}
 
-    protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
 }
