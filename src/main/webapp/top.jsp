@@ -20,11 +20,12 @@ h1 {
 	white-space: nowrap;
 	display: inline-block;
 	font-family: "Roboto", sans-serif;
-	font-size: 4.9em;
+	font-size: 3.5em;
 	font-weight: bold;
 	color: transparent;
 	background-image: linear-gradient(135deg, #ffec61, #f321d7);
 	-webkit-background-clip: text;
+	text-align:center;
 }
 
 h2 {
@@ -37,7 +38,7 @@ h2 {
 
 	<jsp:include page="/menu.jsp" />
 	<h3>
-		<Marquee behavior="alternate" direction="up" width="400" height="30"
+		<Marquee behavior="alternate" direction="up" width="400" height="40"
 			scrollamount="5">
 			<FONT color="tomato">👆ここからお買い物を始めよう♪</FONT>
 		</MARQUEE>
@@ -46,7 +47,7 @@ h2 {
 		<font color="#a0522d">！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！</font>
 	</marquee>
 	<h1>
-		<FONT color="#4169e1">Welcome to Hoge Store❣</FONT>
+		<FONT color="#4682b4">Welcome to Hoge Store❣</FONT>
 	</h1>
 	<h2>
 		<Marquee behavior="alternate" direction="up" width="400" height="50"
