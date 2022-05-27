@@ -19,8 +19,8 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <body style=background-color:#E3D7A3>
 
 <jsp:include page="/menu.jsp" /><br>
-<h3><p style="color:brown">下記の内容で注文を行いますか？</p></h3>
-<h3><p style="color:brown">ご注文商品</p></h3>
+<h3><font color="brown">下記の内容で注文を行いますか？</font></h3>
+<h3><font color="brown">ご注文商品</font></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">

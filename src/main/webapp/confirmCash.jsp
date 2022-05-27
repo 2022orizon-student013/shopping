@@ -19,8 +19,8 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>下記の内容で注文を行いますか？</h3>
-<h3>ご注文商品</h3>
+<h3><FONT color="brown">下記の内容で注文を行いますか？</FONT></h3>
+<h3><FONT color="brown">ご注文商品</FONT></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">
@@ -39,7 +39,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
-<h3>お客様情報</h3>
+<h3><FONT color="brown">お客様情報</FONT></h3>
 
 <form action="/shopping/OrderServlet?action=order" method="post">
     <table border="1">
@@ -56,7 +56,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
         <td>e-mail</td><td>${customer.email}</td>
      </table>
         
-     <h3>支払方法</h3>
+     <h3><FONT color="#brown">支払方法</FONT></h3>
         ${message}
         <br>        
     <br>

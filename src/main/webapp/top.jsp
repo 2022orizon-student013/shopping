@@ -37,6 +37,7 @@ h2{
 
 <jsp:include page="/menu.jsp" />
 <h3><Marquee behavior="alternate" direction="up" width="400" height="30" scrollamount="5"><FONT color="tomato">👆ここからお買い物を始めよう♪</FONT></MARQUEE></h3>
+<marquee bgcolor="#deb887"><font color="#a0522d">！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！今だけ送料無料キャンペーン実施中！！！</font></marquee>
 <h1><FONT color="#4169e1">Welcome to Hoge Store❣</FONT></h1>
 <h2><Marquee behavior="alternate" direction="up" width="400" height="50" scrollamount="5"><FONT color="tomato">↓↓↓おすすめ商品はこちら↓↓↓</FONT></MARQUEE></h2>
 <h2>【本】Javaの基本　　　　　【DVD】なつかしのアニメシリーズ</h2>

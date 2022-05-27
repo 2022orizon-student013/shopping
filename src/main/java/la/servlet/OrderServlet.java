@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import la.bean.CardBean;
 import la.bean.CartBean;
 import la.bean.CustomerBean;
+import la.dao.CardDAO;
 import la.dao.DAOException;
 import la.dao.OrderDAO;
 
@@ -137,14 +138,42 @@ public class OrderServlet extends HttpServlet {
 			} else if (action.equals("order")) {
 
 				CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+				
+				
 				if (customer == null) {
 					request.setAttribute("message", "正しく操作してください。");
 					gotoPage(request, response, "/errInternal.jsp");
 					return;
 				}
+				
+				
 
 				OrderDAO order = new OrderDAO();
 				int orderNumber = order.saveOrder(customer, cart);
+				
+				session.removeAttribute("cart");
+				session.removeAttribute("customer");
+
+				request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
+				gotoPage(request, response, "/order.jsp");
+
+			}  else if (action.equals("orderCard")){
+
+				CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+				CardBean card = (CardBean) session.getAttribute("card");
+				
+				if (customer == null) {
+					request.setAttribute("message", "正しく操作してください。");
+					gotoPage(request, response, "/errInternal.jsp");
+					return;
+				}
+				
+				
+
+				OrderDAO order = new OrderDAO();
+				int orderNumber = order.saveOrder(customer, cart);
+				CardDAO dao = new CardDAO();
+				dao.saveCard(customer, card);
 
 				session.removeAttribute("cart");
 				session.removeAttribute("customer");
@@ -152,7 +181,7 @@ public class OrderServlet extends HttpServlet {
 				request.setAttribute("orderNumber", Integer.valueOf(orderNumber));
 				gotoPage(request, response, "/order.jsp");
 
-			} else {
+			}else {
 
 				request.setAttribute("message", "正しく操作してください。");
 				gotoPage(request, response, "/errInternal.jsp");

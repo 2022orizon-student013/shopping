@@ -16,11 +16,10 @@ font-family: 'Itim', cursive;
 background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa0c1f12d37.jpg");
 }
 </style>
-
-<body style="background-color:#E3D7A3;">
+<body>
 
 <jsp:include page="/menu.jsp" /><br>
-<h3><p style="color:brown">ご注文商品</p></h3>
+<h3><font color="brown">ご注文商品</font></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">
@@ -38,7 +37,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 </c:forEach>
 <tr><td align="right" colspan="6">総計:${cart.total}円</td></tr>		
 </table>
-<h3><p style="color:brown">お客様情報を入力してください。</p></h3>
+<h3><font color="brown">お客様情報を入力してください。</font></h3>
 
 <form action="/shopping/OrderServlet?action=confirm" method="post">
 <table border="1">
@@ -58,7 +57,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <br>
 <input type="radio" name="pay" value="cash">代金引き換え
 <input type="radio" name="pay" value="card">クレジットカード決済
-<input type="radio" name="pay" value="convini">コンビニ決済
+<input type="radio" name="pay" value="conveni">コンビニ決済
 <br>
 <br>
 <input type="submit" value="確認画面へ">

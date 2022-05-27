@@ -41,7 +41,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 
 <h3><p style="color:brown">お客様情報</p></h3>
 
-<form action="/shopping/OrderServlet?action=order" method="post">
+<form action="/shopping/OrderServlet?action=orderCard" method="post">
     <table border="1">
         <tr>
         <td>お名前</td><td>${customer.name}</td>

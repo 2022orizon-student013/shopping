@@ -25,7 +25,7 @@ public class CardDAO {
 	        }
 	    }
 
-	    public int saveOrder(CustomerBean customer, CardBean card)
+	    public int saveCard(CustomerBean customer, CardBean card)
 				                                    throws DAOException {
 	        
 	        int customerNumber = 0;
@@ -46,7 +46,7 @@ public class CardDAO {
 	        }
 
 	       
-	        sql = "INSERT INTO card VALUES(?, ?, ?, ?, ?, ?)";
+	         sql = "INSERT INTO card VALUES(?, ?, ?, ?, ?, ?)";
 			
 	        try (
 				 Connection con = DriverManager.getConnection(url, user, pass);
@@ -60,14 +60,14 @@ public class CardDAO {
 				st.setString(5, card.getYear());
 				st.setString(6, card.getPass());
 				
-				st.executeUpdate();
+				return st.executeUpdate();
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new DAOException("レコードの操作に失敗しました。");
 	        }
 
 	       
-	        int orderNumber = 0;
+	       /* int orderNumber = 0;
 	        sql = "SELECT nextval('ordered_code_seq')";
 			
 	        try (
@@ -83,7 +83,7 @@ public class CardDAO {
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new DAOException("レコードの操作に失敗しました。");
-	        }
+	        }*/
 	    }
 
 		public int saveCard() {

@@ -10,8 +10,8 @@
 
 
 <jsp:include page="/menu.jsp" /><br>
-<h3>支払情報を入力してください</h3>
-<h3><p style="color:brown">ご注文商品</p></h3>
+<h3><font color="brown">支払情報を入力してください</font></h3>
+<h3><font color="brown">ご注文商品</font></h3>
 
 <c:if test="${not empty cart.items}">
 <table border="1">
@@ -30,7 +30,7 @@
 <tr><td align="right" colspan="6">総計：${cart.total}円</td></tr>
 </table>
 
-<h3>お客様情報</h3>
+<h3><font color="brown">お客様情報</font></h3>
 
 <form action="/shopping/OrderServlet?action=order" method="post">
     <table border="1">

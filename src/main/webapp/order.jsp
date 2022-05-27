@@ -20,7 +20,7 @@ background-image:url("https://i.pinimg.com/564x/bf/70/88/bf708882949ac2f5701cdfa
 <body style="background-color:#E3D7A3;">
 
 <jsp:include page="/menu.jsp" /><br>
-<marquee behavior="alternate"><h1><p style="color:brown">★★★ご注文ありがとうございました。★★★ご注文ありがとうございました。</p></h1></marquee>
+<marquee behavior="alternate"><h1><p style="color:brown">★★★ご注文ありがとうございました。★★★ご注文ありがとうございました。★★★</p></h1></marquee>
 <br>
 <br>
 <h2>お客様の注文番号は</h2>
