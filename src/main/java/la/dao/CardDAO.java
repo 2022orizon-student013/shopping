@@ -80,10 +80,14 @@ public class CardDAO {
 				    orderNumber = rs.getInt(1);
 				}
 				return orderNumber;
-				
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new DAOException("レコードの操作に失敗しました。");
 	        }
 	    }
+
+		public int saveCard() {
+			// TODO 自動生成されたメソッド・スタブ
+			return 0;
+		}
 }
